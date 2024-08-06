@@ -92,7 +92,7 @@ namespace Delta.Wsq
 
         #region Windows API
 
-        [DllImport("kernel32.dll")]
+        [DllImport("kernel32.dll", EntryPoint = "RtlMoveMemory")]
         public static extern unsafe void CopyMemory(void* destination, void* source, int length);
 
         #endregion

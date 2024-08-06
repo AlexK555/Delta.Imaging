@@ -1,6 +1,6 @@
 ﻿using System;
 using SD = System.Drawing;
-using SDI = System.Drawing.Imaging;
+using SDI = System.Drawing;
 using SWMI = System.Windows.Media.Imaging;
 
 namespace Delta.Wsq

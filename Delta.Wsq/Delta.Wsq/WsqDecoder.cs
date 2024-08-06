@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using SD = System.Drawing;
 using SWMI = System.Windows.Media.Imaging;
-
 namespace Delta.Wsq
 {
     public class WsqDecoder
