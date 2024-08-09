@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using SD = System.Drawing;
-using SWMI = System.Windows.Media.Imaging;
 namespace Delta.Wsq
 {
     public class WsqDecoder
@@ -19,11 +18,5 @@ namespace Delta.Wsq
             return Conversions.ImageInfoToGdiImage(raw);
         }
 
-        public SWMI.BitmapSource DecodeWpf(byte[] data)
-        {
-            if (data == null || data.Length == 0) throw new ArgumentNullException("data");
-            var raw = Decode(data);
-            return Conversions.ImageInfoToWpfImage(raw);
-        }
     }
 }

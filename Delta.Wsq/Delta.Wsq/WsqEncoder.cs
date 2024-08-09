@@ -1,7 +1,6 @@
 ﻿using System;
 using SD = System.Drawing;
 using SDI = System.Drawing;
-using SWMI = System.Windows.Media.Imaging;
 
 namespace Delta.Wsq
 {
@@ -53,31 +52,6 @@ namespace Delta.Wsq
 
         #endregion
 
-        #region WPF
-
-        public byte[] EncodeQualityWpf(SWMI.BitmapSource image, int quality, bool autoConvertToGrayscale = true)
-        {
-            return EncodeCompressionRatioWpf(image, WsqCodec.QualityToCompressionRatio(quality), autoConvertToGrayscale);
-        }
-
-        public byte[] EncodeCompressionRatioWpf(SWMI.BitmapSource image, float compressionRatio, bool autoConvertToGrayscale = true)
-        {
-            return EncodeWpf(image, WsqCodec.CompressionRatioToBitrate(compressionRatio), autoConvertToGrayscale);
-        }
-
-        public byte[] EncodeWpf(SWMI.BitmapSource image, float bitrate = WsqCodec.Constants.DefaultBitrate, bool autoConvertToGrayscale = true)
-        {
-            if (image == null) throw new ArgumentNullException("image");
-
-            SWMI.BitmapSource source = null;
-            if (autoConvertToGrayscale)
-                source = Conversions.ToGray8BitmapSource(image);
-            else source = image;
-            
-            var data = Conversions.WpfImageToImageInfo(source);
-            return WsqCodec.Encode(data, bitrate, Comment);
-        }
-
-        #endregion
+       
     }
 }
